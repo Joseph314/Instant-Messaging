@@ -24,9 +24,13 @@ public class Server {
 			PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
 			BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 		) {
+			System.out.println("Connected");
 			BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 			String fromClient, fromServer;
-			
+			fromServer="hello";
+			in.ready();
+			System.out.println("So far so good");
+			out.println(fromServer);
 			while ((fromClient = in.readLine()) != null) {
 				System.out.println("Client: " + fromClient);
 				if (fromClient.equals("\\shutdown")){
@@ -36,11 +40,13 @@ public class Server {
 				if (fromServer!=null){
 					System.out.println("Client: " + fromServer);
 					out.println(fromServer);
+					out.flush();
 				}
 				if(fromServer.equals("\\shutdown")){
 					break;
 				}
 			}
+			System.out.println("Did you get anything");
 		} catch(IOException e) {
 			System.out.println("Exception caught when trying to listen on port" + portNumber+" or listening for a connection");
 			System.out.println(e.getMessage());
