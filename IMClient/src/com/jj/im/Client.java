@@ -34,6 +34,7 @@ public class Client {
 				if(fromClient != null){
 					System.out.println("Client: "+fromClient);
 					out.println(fromClient);
+					out.flush();
 				}
 				if(fromClient.equals("\\shutdown")){
 					break;
