@@ -34,7 +34,7 @@ public class Server extends Thread {
 				if (fromClient.equals("\\shutdown")){
 					break;
 				}
-				fromServer = "test";
+				fromServer = stdIn.readLine();
 				if (fromServer!=null){
 					System.out.println("Client: " + fromServer);
 					out.println(fromServer);
