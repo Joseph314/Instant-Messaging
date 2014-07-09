@@ -24,7 +24,6 @@ public class Server {
 			PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
 			BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 		) {
-			BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 			String fromClient, fromServer;
 			
 			while ((fromClient = in.readLine()) != null) {
@@ -32,7 +31,7 @@ public class Server {
 				if (fromClient.equals("\\shutdown")){
 					break;
 				}
-				fromServer = stdIn.readLine();
+				fromServer = "test";
 				if (fromServer!=null){
 					System.out.println("Client: " + fromServer);
 					out.println(fromServer);

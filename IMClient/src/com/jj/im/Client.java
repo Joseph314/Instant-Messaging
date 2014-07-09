@@ -10,7 +10,6 @@ import java.net.UnknownHostException;
 public class Client {
 
 	public static void main(String[] args) throws IOException{
-		// TODO Auto-generated method stub
 		if(args.length != 2){
 			System.err.println("Usage: java IMClient <host ip/name> <port>");
 			System.exit(1);
@@ -45,6 +44,7 @@ public class Client {
 			System.exit(1);
 		} catch(IOException e){
 			System.err.println("Couldn't get I/0 for connection to " + hostName);
+			System.err.println(e.getMessage());
 			System.exit(1);
 		}
 	}
